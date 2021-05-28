@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
     has_many :attractions, through: :rides
 
     validates_presence_of :name
-  #validates_uniqueness_of :email
+    validates_uniqueness_of :name
   
     def mood
         if nausea && happiness

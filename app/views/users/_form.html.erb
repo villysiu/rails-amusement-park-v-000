@@ -1,3 +1,5 @@
+<div><%= @user.errors.full_messages.first if @user.errors.any? %></div>
+
 <%= form_for @user do |f| %>
     <div class="field">
       <%= f.label :name %>
