@@ -34,6 +34,21 @@ class UsersController < ApplicationController
       redirect_to '/'
     end
   end
+  def update
+    @user = User.find(params[:id])
+    #puts user_params
+    @user.update(user_params)
+    if @user.errors.messages != {}
+      render :edit
+    else
+      redirect_to @user
+    end
+  end
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to users_path
+  end
 
 
   private
