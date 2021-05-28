@@ -1,16 +1,17 @@
+<br><br><br><br><br><br>
 <h2>Welcome to the theme park!</h2>
 
 <% if current_user.admin %>
   <p><strong>ADMIN</strong></p>
-<% else %>
-  ---
 <% end %>
 
-<p><strong>Name:</strong> <%= current_user.name %></p>
-<p><strong>Tickets:</strong> <%= current_user.tickets ||= 'N/A' %></p>
-<p><strong>Mood:</strong> <%= current_user.mood %></p>
-<p><strong>Height:</strong> <%= current_user.how_tall? %> </p>
-<% if current_user.admin %>
-<p><%= link_to 'Edit', edit_user_path %></p>
-<% end %>
+  <p><strong>Name:</strong> <%= @user.name %></p>
+  <p><strong>Tickets:</strong> <%= @user.tickets ||= 'N/A' %></p>
+  <p><strong>Mood:</strong> <%= @user.mood %></p>
+  <p><strong>Height:</strong> <%= @user.how_tall? %> </p>
+  
+
+
+
+
 <p><%= link_to 'See attractions', attractions_path %></p>

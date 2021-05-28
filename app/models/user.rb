@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
     has_many :attractions, through: :rides
 
     validates_presence_of :name
-    validates_uniqueness_of :name
+    validates_uniqueness_of :name, :message => '%{value} has already been taken'
   
     def mood
         if nausea && happiness

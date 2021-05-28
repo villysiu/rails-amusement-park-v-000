@@ -27,7 +27,8 @@
 
         <% if logged_in? %>
           <h3>Hello, <%= current_user.name %></h3>
-          <%= link_to "Logout", logout_path, method: :delete %> 
+          <%= link_to "Profile", user_path(current_user) %>
+          <%= link_to "Log Out", logout_path, method: :delete %> 
 
   
         <% else %>
@@ -37,10 +38,13 @@
         <% end %> 
 <% if notice %>
 <%= notice %>
-<% end %> <% if alert %>
+<% end %> 
+<% if alert %>
 <%= alert %>
 <% end %>
-
+<% if flash.any? (:messages) %>
+  <%= flash(:messages) %>
+<% end %>
       </div>
     </div>
 
