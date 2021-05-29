@@ -36,20 +36,19 @@
           <%= link_to 'Sign In', signin_path  %>
           
         <% end %> 
-<% if notice %>
-<%= notice %>
-<% end %> 
-<% if alert %>
-<%= alert %>
-<% end %>
-<% if flash.any? (:messages) %>
-  <%= flash(:messages) %>
-<% end %>
+
+
       </div>
     </div>
 
     <!-- content -->
-    <br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+
     <div class="container"  role="main">
       <%= yield %>
     </div>

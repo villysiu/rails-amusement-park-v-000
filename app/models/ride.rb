@@ -5,6 +5,8 @@ class Ride < ActiveRecord::Base
     def take_ride
 
         message = "Sorry."
+       
+     
         if user.tickets < attraction.tickets
           message << " You do not have enough tickets to ride the #{attraction.name}."
         end
@@ -13,6 +15,8 @@ class Ride < ActiveRecord::Base
         end
         if user.tickets >= attraction.tickets && user.height >= attraction.min_height
           user.tickets -= attraction.tickets
+
+          puts user.tickets
           user.happiness += attraction.happiness_rating
           user.nausea += attraction.nausea_rating
           message = "Thanks for riding the #{attraction.name}!"
